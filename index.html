@@ -128,9 +128,9 @@
   .hero-stats{ display:flex; flex-wrap:wrap; gap:.6rem; }
   .stat-chip{ font-family:var(--font-mono); font-size:.76rem; color:var(--ink-soft); border:1px solid var(--line); border-radius:999px; padding:.35rem .8rem; background:var(--bg-card); }
 
-  .about-grid{ display:grid; grid-template-columns:1.3fr .7fr; gap:2.5rem; align-items:start; }
+  
   @media (max-width:800px){ .about-grid{ grid-template-columns:1fr; } }
-  .file-card{ background:var(--bg-card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; }
+  .file-card{ background:var(--bg-card); border:1-radius); box-shadow:var(--shadow); overflow:hidden; }
   .file-tab{ display:flex; align-items:center; gap:.5rem; padding:.6rem 1rem; border-bottom:1px solid var(--line); font-family:var(--font-mono); font-size:.76rem; color:var(--ink-faint); }
   .file-tab .dotu{ width:6px; height:6px; border-radius:50%; background:var(--accent); }
   .file-body{ padding:1.5rem 1.6rem; }
@@ -256,8 +256,7 @@
 
   /* ── About photo ──────────────────────────────────────── */
   .about-grid{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start;}
-  @media(max-width:700px){.about-grid{grid-template-columns:1fr;}.about-photo{order:-1;justify-self:center;}}
-  .about-photo{display:flex;flex-direction:column;align-items:center;gap:.65rem;flex-shrink:0;}
+  @media(max-width:700px){.about-grid{grid-templaflex;flex-direction:column;align-items:center;gap:.65rem;flex-shrink:0;}
   .about-avatar{width:140px;height:140px;border-radius:50%;border:2px solid var(--accent);background:var(--bg-card);display:flex;align-items:center;justify-content:center;font-size:3rem;font-weight:700;color:var(--accent);overflow:hidden;box-shadow:0 0 0 6px rgba(200,169,110,.08);transition:box-shadow .3s;}
   .about-avatar:hover{box-shadow:0 0 0 10px rgba(200,169,110,.12);}
   .about-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
@@ -315,8 +314,8 @@
   .cf-group input,.cf-group textarea{background:var(--bg-card);border:1px solid var(--line);border-radius:8px;color:var(--text);font-size:1rem;padding:.65rem .9rem;outline:none;font-family:inherit;resize:vertical;transition:border-color .18s;}
   .cf-group input:focus,.cf-group textarea:focus{border-color:var(--accent);}
   .cf-group input::placeholder,.cf-group textarea::placeholder{color:var(--muted);opacity:.45;}
-  .cf-footer{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;}
-  .cf-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.72rem 1.6rem;border-radius:8px;background:var(--accent);color:#0f0e0c;border:none;font-weight:700;font-size:.9rem;cursor:pointer;font-family:inherit;transition:opacity .15s;position:relative;}
+  .cf-footer{display:flex;flex-direction:column;align-items:center;gap:.75rem;width:100%;}
+  .cf-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.72rem 2.4rem;border-radius:8px;background:var(--accent);color:#0f0e0c;border:none;font-weight:700;font-size:.9rem;cursor:pointer;font-family:inherit;transition:opacity .15s;position:relative;min-width:200px;}
   .cf-btn:hover{opacity:.88;}
   .cf-btn:disabled{opacity:.55;pointer-events:none;}
   .cf-spinner{display:none;width:14px;height:14px;border-radius:50%;border:2px solid rgba(0,0,0,.25);border-top-color:#0f0e0c;animation:cfSpin .7s linear infinite;}
@@ -469,13 +468,13 @@
       <div class="skill-card">
         <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="6" rx="1"/><rect x="4" y="14" width="16" height="6" rx="1"/><circle cx="7.5" cy="7" r=".6" fill="currentColor" stroke="none"/><circle cx="7.5" cy="17" r=".6" fill="currentColor" stroke="none"/></svg> <span data-i18n="skills.backend">Backend</span></h3>
         <ul class="tag-list">
-          <li class="tag">Java</li><li class="tag" data-i18n="skills.oop">POO</li><li class="tag">PHP</li><li class="tag">Python</li><li class="tag">Laravel</li><li class="tag">Spring Boot</li><li class="tag">Node.js</li>
+          <li class="tag">Java</li><li class="tag" data-i18n="skills.oop">POO</li><li class="tag"><span data-i18n="filter.php">PHP</span></li><li class="tag">Python</li><li class="tag">Laravel</li><li class="tag"><span data-i18n="filter.spring">Spring Boot</span></li><li class="tag"><span data-i18n="filter.nodejs">Node.js</span></li>
         </ul>
       </div>
       <div class="skill-card">
         <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><line x1="3" y1="8.5" x2="21" y2="8.5"/></svg> <span data-i18n="skills.frontend">Frontend</span></h3>
         <ul class="tag-list">
-          <li class="tag">Angular</li><li class="tag">React</li><li class="tag">HTML / CSS</li><li class="tag">JavaScript</li>
+          <li class="tag"><span data-i18n="filter.angular">Angular</span></li><li class="tag"><span data-i18n="filter.react">React</span></li><li class="tag">HTML / CSS</li><li class="tag">JavaScript</li>
         </ul>
       </div>
       <div class="skill-card">
@@ -572,13 +571,13 @@
       <h2 data-i18n="proj.h2">Proyectos</h2>
     </div>
     <div class="proj-filters" id="projFilters">
-      <button class="pf-btn active" data-tag="all" onclick="filterProjects('all',this)">Todos</button>
+      <button class="pf-btn active" data-tag="all" onclick="filterProjects('all',this)"><span data-i18n="filter.all">Todos</span></button>
       <button class="pf-btn" data-tag="nodejs" onclick="filterProjects('nodejs',this)">Node.js</button>
       <button class="pf-btn" data-tag="react" onclick="filterProjects('react',this)">React</button>
       <button class="pf-btn" data-tag="springboot" onclick="filterProjects('springboot',this)">Spring Boot</button>
       <button class="pf-btn" data-tag="angular" onclick="filterProjects('angular',this)">Angular</button>
       <button class="pf-btn" data-tag="php" onclick="filterProjects('php',this)">PHP</button>
-      <button class="pf-btn" data-tag="docker" onclick="filterProjects('docker',this)">Docker</button>
+      <button class="pf-btn" data-tag="docker" onclick="filterProjects('docker',this)"><span data-i18n="filter.docker">Docker</span></button>
     </div>
     <div class="projects-grid" id="projGrid">
       <div class="project-card" data-tags="">
@@ -703,17 +702,19 @@
     <div class="cf-row">
       <div class="cf-group">
         <label for="cf-name" data-i18n="contact.form.name">Nombre</label>
-        <input type="text" id="cf-name" name="name" placeholder="Tu nombre" required autocomplete="name">
+        <input type="text" id="cf-name" name="name" data-ph="form.ph.name" placeholder="Tu nombre" required autocomplete="name">
       </div>
       <div class="cf-group">
         <label for="cf-email" data-i18n="contact.form.email">Email</label>
-        <input type="email" id="cf-email" name="email" placeholder="tu@email.com" required autocomplete="email">
+        <input type="email" id="cf-email" name="email" data-ph="form.ph.email" placeholder="tu@email.com" required autocomplete="email">
       </div>
     </div>
     <div class="cf-group">
       <label for="cf-msg" data-i18n="contact.form.message">Mensaje</label>
-      <textarea id="cf-msg" name="message" rows="4" placeholder="Cuéntame en qué puedo ayudarte…" required></textarea>
+      <textarea id="cf-msg" name="message" rows="4" data-ph="form.ph.msg" placeholder="Cuéntame en qué puedo ayudarte…" required></textarea>
     </div>
+    <!-- Honeypot anti-spam (Formspree lo detecta automáticamente) -->
+    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
     <div class="cf-footer">
       <button type="submit" class="cf-btn" id="cfSubmit">
         <span class="cf-btn-text" data-i18n="contact.form.send">Enviar mensaje</span>
@@ -931,6 +932,16 @@
       "proj.title7": "IT Helpdesk — Panel de gestión IT",
       "proj.desc7": "Panel IT que fusiona ASIR y DAW: inventario de equipos, tickets con SLA por prioridad, tres roles y notificaciones por email.",
       "proj.viewDemo": "Ver demo",
+      "filter.all": "Todos",
+      "filter.nodejs": "Node.js",
+      "filter.react": "React",
+      "filter.spring": "Spring Boot",
+      "filter.angular": "Angular",
+      "filter.php": "PHP",
+      "filter.docker": "Docker",
+      "form.ph.name": "Tu nombre",
+      "form.ph.email": "tu@email.com",
+      "form.ph.msg": "Cuéntame en qué puedo ayudarte…",
       "contact.form.name": "Nombre",
       "contact.form.email": "Email",
       "contact.form.message": "Mensaje",
@@ -1047,6 +1058,16 @@
       "proj.title7": "IT Helpdesk — IT management panel",
       "proj.desc7": "IT panel merging ASIR and DAW profiles: equipment inventory, SLA tickets by priority, three user roles and email notifications.",
       "proj.viewDemo": "View demo",
+      "filter.all": "All",
+      "filter.nodejs": "Node.js",
+      "filter.react": "React",
+      "filter.spring": "Spring Boot",
+      "filter.angular": "Angular",
+      "filter.php": "PHP",
+      "filter.docker": "Docker",
+      "form.ph.name": "Your name",
+      "form.ph.email": "you@email.com",
+      "form.ph.msg": "Tell me how I can help you…",
       "contact.form.name": "Name",
       "contact.form.email": "Email",
       "contact.form.message": "Message",
@@ -1163,6 +1184,16 @@
       "proj.title7": "IT Helpdesk — IT kudeaketa panela",
       "proj.desc7": "IT panela ekipoen inbentarioarekin, SLA tiketak eta hiru erabiltzaile-rol. ASIR eta DAW profilak biltzen ditu.",
       "proj.viewDemo": "Demo ikusi",
+      "filter.all": "Denak",
+      "filter.nodejs": "Node.js",
+      "filter.react": "React",
+      "filter.spring": "Spring Boot",
+      "filter.angular": "Angular",
+      "filter.php": "PHP",
+      "filter.docker": "Docker",
+      "form.ph.name": "Zure izena",
+      "form.ph.email": "zu@emaila.com",
+      "form.ph.msg": "Kontaidazu nola lagun zaitzakedan…",
       "contact.form.name": "Izena",
       "contact.form.email": "Emaila",
       "contact.form.message": "Mezua",
@@ -1210,7 +1241,11 @@
     var ogDesc = document.querySelector('meta[property="og:description"]');
     if(ogDesc && dict['meta.description']) ogDesc.setAttribute('content', dict['meta.description']);
 
-    document.querySelectorAll('[data-i18n]').forEach(function(el){
+    document.querySelectorAll('[data-ph]').forEach(function(el){
+    var key = el.getAttribute('data-ph');
+    if(t[key]) el.setAttribute('placeholder', t[key]);
+  });
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
       var key = el.getAttribute('data-i18n');
       if(dict[key] !== undefined) el.textContent = dict[key];
     });
