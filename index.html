@@ -129,7 +129,7 @@
   .stat-chip{ font-family:var(--font-mono); font-size:.76rem; color:var(--ink-soft); border:1px solid var(--line); border-radius:999px; padding:.35rem .8rem; background:var(--bg-card); }
 
   
-  @media (max-width:800px){  }
+  @media (max-width:800px){ .about-grid{ grid-template-columns:1fr; } }
   .file-card{ background:var(--bg-card); border:1-radius); box-shadow:var(--shadow); overflow:hidden; }
   .file-tab{ display:flex; align-items:center; gap:.5rem; padding:.6rem 1rem; border-bottom:1px solid var(--line); font-family:var(--font-mono); font-size:.76rem; color:var(--ink-faint); }
   .file-tab .dotu{ width:6px; height:6px; border-radius:50%; background:var(--accent); }
@@ -255,17 +255,17 @@
   @keyframes cursorBlink{0%,100%{opacity:1}50%{opacity:0}}
 
   /* ── About photo ──────────────────────────────────────── */
-  
-  @media(max-width:700px){
+  .about-grid{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start;}
+  @media(max-width:700px){.about-grid{grid-templaflex;flex-direction:column;align-items:center;gap:.65rem;flex-shrink:0;}
   .about-avatar{width:140px;height:140px;border-radius:50%;border:2px solid var(--accent);background:var(--bg-card);display:flex;align-items:center;justify-content:center;font-size:3rem;font-weight:700;color:var(--accent);overflow:hidden;box-shadow:0 0 0 6px rgba(200,169,110,.08);transition:box-shadow .3s;}
-  
-  
-  
+  .about-avatar:hover{box-shadow:0 0 0 10px rgba(200,169,110,.12);}
+  .about-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+  .about-location{font-size:.78rem;color:var(--muted);display:flex;align-items:center;gap:.3rem;}
 
   /* ── Project filters ──────────────────────────────────── */
   .proj-filters{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.1rem;}
-  
-  
+  .pf-btn{padding:5px 14px;border-radius:50px;border:1px solid var(--line);background:transparent;color:var(--muted);font-size:.78rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;}
+  .pf-btn:hover{border-color:var(--accent);color:var(--accent);}
   .pf-btn.active{background:var(--accent);border-color:var(--accent);color:#0f0e0c;}
   .project-card{transition:opacity .2s;}
   .project-card.hidden{display:none;}
@@ -288,8 +288,8 @@
   @media(max-width:500px){.exp-logo{display:none;}}
 
   /* ── Demo modal ───────────────────────────────────────── */
-  
-  
+  .dm-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.87);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:9999;align-items:center;justify-content:center;padding:1rem;}
+  .dm-overlay.open{display:flex;animation:dmFI .2s ease;}
   @keyframes dmFI{from{opacity:0}to{opacity:1}}
   .dm-box{background:#1a1815;border:1px solid rgba(200,169,110,.22);border-radius:16px;padding:1.1rem;width:100%;max-width:1000px;max-height:90vh;overflow-y:auto;box-shadow:0 32px 80px rgba(0,0,0,.8);animation:dmSU .22s ease;position:relative;}
   .dm-box.phone{max-width:360px;}
@@ -309,20 +309,28 @@
 
   /* ── Contact form ─────────────────────────────────────── */
   .contact-form{max-width:580px;margin:2rem auto 0;display:flex;flex-direction:column;gap:.85rem;}
-  
-  @media(max-width:560px){}
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  }
-  
+  .cf-row{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;}
+  @media(max-width:560px){.cf-row{grid-template-columns:1fr;}}
+  .cf-group{display:flex;flex-direction:column;gap:.3rem;}
+  .cf-group label{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
+  .cf-group input,.cf-group textarea{background:var(--bg-card);border:1px solid var(--line);border-radius:8px;color:var(--text);font-size:1rem;padding:.65rem .9rem;outline:none;font-family:inherit;resize:vertical;transition:border-color .18s;}
+  .cf-group input:focus,.cf-group textarea:focus{border-color:var(--accent);}
+  .cf-group input::placeholder,.cf-group textarea::placeholder{color:var(--muted);opacity:.45;}
+  .cf-footer{display:flex;flex-direction:column;align-items:center;gap:.75rem;width:100%;}
+  .cf-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.72rem 2.4rem;border-radius:8px;background:var(--accent);color:#0f0e0c;border:none;font-weight:700;font-size:.9rem;cursor:pointer;font-family:inherit;transition:opacity .15s;position:relative;min-width:200px;}
+  .cf-btn:hover{opacity:.88;}
+  .cf-btn:disabled{opacity:.55;pointer-events:none;}
+  .cf-spinner{display:none;width:14px;height:14px;border-radius:50%;border:2px solid rgba(0,0,0,.25);border-top-color:#0f0e0c;animation:cfSpin .7s linear infinite;}
+  @keyframes cfSpin{to{transform:rotate(360deg)}}
+  .cf-btn.loading .cf-btn-text{opacity:0;}
+  .cf-btn.loading .cf-spinner{display:block;position:absolute;}
+  .cf-status{font-size:.82rem;font-weight:600;opacity:0;transition:opacity .3s;}
+  .cf-status.ok{color:#4caf6e;opacity:1;}
+  .cf-status.err{color:#e05555;opacity:1;}
+
+  /* ── Print ────────────────────────────────────────────── */
+  @media print{
+    #scrollBar,#btt,nav,.hero-role-wrap,.terminal,.dm-overlay,.proj-filters,.gh-stats-wrap,.contact-form,footer{display:none!important;}
     body,html{background:#fff!important;color:#000!important;}
     .project-card{background:#f9f9f9!important;border:1px solid #ddd!important;break-inside:avoid;}
     a[href^="http"]::after{content:" ("attr(href)")";font-size:.7rem;color:#555;}
@@ -346,79 +354,6 @@
       min-height: 1.6em;
     }
   }
-
-
-  /* ── About avatar en sidebar ─────────────────────────── */
-  
-  
-  
-  /* Clean up old about-photo styles */
-  
-
-
-  /* ── Avatar en panel about ───────────────────────────── */
-  .fact--avatar {
-    display: flex;
-    justify-content: center;
-    padding: .75rem 0 .5rem;
-    border-bottom: 1px solid var(--line, #2e2b26);
-    margin-bottom: .25rem;
-  }
-  .about-avatar--sm {
-    width: 84px;
-    height: 84px;
-    border-radius: 50%;
-    border: 2px solid #c8a96e;
-    overflow: hidden;
-    flex-shrink: 0;
-    box-shadow: 0 0 0 4px rgba(200,169,110,.12);
-  }
-  .about-avatar--sm img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    border-radius: 50%;
-  }
-
-
-  /* ── Contact form ─────────────────────────────────────── */
-  .contact-form {
-    max-width: 560px;
-    margin: 2rem auto 0;
-    display: flex;
-    flex-direction: column;
-    gap: .85rem;
-  }
-  
-  @media(max-width:560px){ .cf-row{ grid-template-columns: 1fr; } }
-  
-  
-  
-  
-  .cf-group input::placeholder,
-  .cf-group textarea::placeholder {
-    color: #8a8070;
-    opacity: .45;
-  }
-  .cf-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: .75rem;
-    width: 100%;
-  }
-  
-  
-  
-  
-  @keyframes cfSpin { to { transform: rotate(360deg); } }
-  
-  .cf-btn.loading .cf-spinner { display: block; position: absolute; }
-  
-  
-  .cf-status.err { color: #e05555; opacity: 1; }
 
 </style>
   <!-- SEO / Social -->
@@ -515,15 +450,14 @@
         </div>
       </div>
       <div class="facts">
-        <div class="fact fact--avatar">
-          <div class="about-avatar--sm">
-            <img src="assets/foto.jpg" alt="Agoitz Ezkerra" onerror="this.parentNode.innerHTML='AE'">
-          </div>
-        </div>
         <div class="fact"><div class="k" data-i18n="about.factLocationK">Ubicación</div><div class="v" data-i18n="about.factLocationV">Donostia, País Vasco</div></div>
         <div class="fact"><div class="k" data-i18n="about.factLangK">Idiomas</div><div class="v" data-i18n="about.factLangV">Euskera · Español · Inglés (B1)</div></div>
         <div class="fact"><div class="k" data-i18n="about.factProfileK">Perfil</div><div class="v">Full-Stack / DevOps</div></div>
       </div>
+      <aside class="about-photo">
+        <div class="about-avatar"><img src="assets/foto.jpg" alt="Agoitz Ezkerra" onerror="this.parentNode.innerHTML='AE'"></div>
+        <span class="about-location">📍 Donostia, Euskadi</span>
+      </aside>
     </div>
   </section>
 
@@ -580,7 +514,7 @@
     <div class="log">
       <details class="log-item" open>
         <summary class="log-head"><img src="data:image/png;base64,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" class="exp-logo" alt="Grupo Salto — Intelligent Technology">
-          <span class="log-date" data-i18n="exp.date1">Jul. 2026 — Ago. 2026</span>
+          <span class="log-date" data-i18n="exp.date1">2026 — actualidad</span>
           <span class="log-title" data-i18n-html="exp.title1">Microinformático<span>Grupo Salto</span></span>
           <svg class="log-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
         </summary>
@@ -959,14 +893,14 @@
       "skills.serverAdmin": "Administración de servidores",
       "exp.eyebrow": "~/experiencia",
       "exp.h2": "Experiencia profesional",
-      "exp.date1": "Jul. 2026 — Ago. 2026",
+      "exp.date1": "2026 — actualidad",
       "exp.date2": "Marzo – Mayo 2026",
       "exp.title1": "Microinformático<span>Grupo Salto</span>",
       "exp.title2": "Prácticas — Automatización con Python<span>Farmacia Gipuzkoa Plaza</span>",
       "exp.title3": "Administrador de Sistemas<span>Administración de la Seguridad Social</span>",
       "exp.title4": "Desarrollador Web<span>Ibermatica</span>",
       "exp.title5": "Administrador de Sistemas<span>Ibermatica · Donostia</span>",
-      "exp.body1": "Soporte técnico y mantenimiento de equipos en entorno empresarial multiservicio. Instalé y configuré puestos de trabajo, resolví incidencias de hardware y software, y gestioné el inventario informático del parque de equipos.",
+      "exp.body1": "Soporte técnico y mantenimiento de equipos en entorno empresarial multiservicio. Instalación y configuración de puestos de trabajo, resolución de incidencias de hardware y software, y gestión del inventario informático.",
       "exp.body2": "Prácticas en las que automaticé procesos de gestión interna con scripts en Python: generación automática de informes, procesado de datos de facturación y control de stock. Reducción significativa de tareas manuales repetitivas del equipo administrativo.",
       "exp.body3": "Atención al usuario y al cliente, y mantenimiento de equipos informáticos.",
       "exp.body4": "Desarrollo de una aplicación web con Spring y Angular, con base de datos en PostgreSQL.",
@@ -1014,7 +948,7 @@
       "contact.form.email": "Email",
       "contact.form.message": "Mensaje",
       "contact.form.send": "Enviar mensaje",
-      "exp.body1": "Soporte técnico y mantenimiento de equipos en entorno empresarial multiservicio. Instalé y configuré puestos de trabajo, resolví incidencias de hardware y software, y gestioné el inventario informático del parque de equipos.",
+      "exp.body1": "Soporte técnico y mantenimiento de equipos en entorno empresarial multiservicio. Instalación y configuración de puestos de trabajo, resolución de incidencias de hardware y software, y gestión del inventario informático.",
       "exp.body2": "Prácticas en las que automaticé procesos de gestión interna con scripts en Python: generación automática de informes, procesado de datos de facturación y control de stock. Reducción significativa de tareas manuales repetitivas del equipo administrativo.",
       "exp.body3": "Atención presencial a ciudadanos y resolución de dudas sobre trámites. Mantenimiento de equipos informáticos de la oficina y soporte técnico de primer nivel a empleados.",
       "exp.body4": "Desarrollo de una aplicación web de gestión interna con Spring Boot y Angular, con base de datos PostgreSQL. Participación en el ciclo completo: diseño de API REST, implementación de módulos y pruebas de integración.",
@@ -1085,7 +1019,7 @@
       "skills.serverAdmin": "Server administration",
       "exp.eyebrow": "~/experience",
       "exp.h2": "Professional experience",
-      "exp.date1": "Jul. 2026 — Aug. 2026",
+      "exp.date1": "2026 — present",
       "exp.date2": "March – May 2026",
       "exp.title1": "IT Support Technician<span>Grupo Salto</span>",
       "exp.title2": "Internship — Python Automation<span>Farmacia Gipuzkoa Plaza</span>",
@@ -1211,7 +1145,7 @@
       "skills.serverAdmin": "Zerbitzarien administrazioa",
       "exp.eyebrow": "~/esperientzia",
       "exp.h2": "Lan-esperientzia",
-      "exp.date1": "Uzt. 2026 — Abu. 2026",
+      "exp.date1": "2026 — gaur arte",
       "exp.date2": "2026ko martxoa – maiatza",
       "exp.title1": "Mikroinformatikaria<span>Grupo Salto</span>",
       "exp.title2": "Praktikak — Python bidezko automatizazioa<span>Farmacia Gipuzkoa Plaza</span>",
