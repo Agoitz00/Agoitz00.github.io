@@ -104,7 +104,7 @@
   }
 
   .hero{ padding-block:clamp(2.6rem,7vw,5rem); display:grid; grid-template-columns:1.05fr .95fr; gap:3rem; align-items:center; }
-  @media (max-width:900px){
+  @media (max-width:700px){
     .hero{ grid-template-columns:1fr; }
     .hero-copy{ order:1; }
     .terminal{ order:2; }
@@ -312,7 +312,8 @@
   @media(max-width:600px){.dm-overlay{padding:.5rem;}.dm-box{border-radius:12px;padding:.85rem;}}
 
   /* ── Contact form ──────────────────────────────────────── */
-  .contact-form{max-width:560px;margin:2rem auto 0;display:flex;flex-direction:column;gap:.85rem;}
+  .form-center-wrap{display:flex;justify-content:center;width:100%;}
+  .contact-form{width:100%;max-width:560px;margin:2rem auto 0;display:flex;flex-direction:column;gap:.85rem;}
   .cf-row{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;}
   @media(max-width:560px){.cf-row{grid-template-columns:1fr;}}
   .cf-group{display:flex;flex-direction:column;gap:.3rem;}
@@ -384,7 +385,6 @@
 
 <main id="main">
   <section id="inicio" class="hero container">
-    <div class="hero-role-wrap" aria-live="polite"><span class="hero-role-label" id="typeRole"></span><span class="hero-cursor">|</span></div>
     <div class="terminal">
       <div class="terminal-bar"><span class="dot"></span> agoitz@portfolio — zsh</div>
       <div class="terminal-body">
@@ -396,6 +396,7 @@
       </div>
     </div>
     <div class="hero-copy">
+      <div class="hero-role-wrap" aria-live="polite"><span class="hero-role-label" id="typeRole"></span><span class="hero-cursor">|</span></div>
       <p class="eyebrow" data-i18n="hero.eyebrow">~/inicio</p>
       <h1>Agoitz Ezkerra Berasategi</h1>
       <p class="tagline" data-i18n="hero.tagline">Desarrollador Full-Stack con base en Administración de Sistemas</p>
@@ -559,7 +560,7 @@
       <button class="pf-btn" data-tag="docker" onclick="filterProjects('docker',this)"><span data-i18n="filter.docker">Docker</span></button>
     </div>
     <div class="projects-grid" id="projGrid">
-      <div class="project-card" data-tags="">
+      <div class="project-card" data-tags="javascript,php,css">
         <span class="badge" data-i18n="proj.badge3">Proyecto académico (equipo)</span>
         <h3 data-i18n="proj.title3">Erronka — Car Crashers (desguace)</h3>
         <p data-i18n="proj.desc3">Web para una empresa ficticia de desguace, desarrollada en equipo de 3 personas como ejercicio del ciclo de Desarrollo de Aplicaciones Web.</p>
@@ -569,7 +570,7 @@
           <a class="project-link" href="https://github.com/Agoitz00/Erronka" target="_blank" rel="noopener"><span data-i18n="proj.viewCode">Ver código</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
         </div>
       </div>
-      <div class="project-card" data-tags="">
+      <div class="project-card" data-tags="nodejs,express,sqlite,pwa">
         <span class="badge" data-i18n="proj.badge4">Proyecto personal</span>
         <h3 data-i18n="proj.title4">TPV Hostelería — Node.js + Electron</h3>
         <p data-i18n="proj.desc4">Sistema TPV para hostelería: gestión de mesas y comandas en tiempo real (SSE), pantalla de cocina y panel de administración. Backend en Node.js/Express con SQLite nativo, instalable como PWA en tablet.</p>
@@ -579,7 +580,7 @@
           <a class="project-link" href="https://github.com/Agoitz00/Hostalaritza" target="_blank" rel="noopener"><span data-i18n="proj.viewCode">Ver código</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
         </div>
       </div>
-      <div class="project-card" data-tags="">
+      <div class="project-card" data-tags="html,css,javascript,json">
         <span class="badge" data-i18n="proj.badge5">Proyecto personal</span>
         <h3 data-i18n="proj.title5">Cargadero — Biblioteca de ejercicios</h3>
         <p data-i18n="proj.desc5">App web estática para explorar 1.324 ejercicios de gimnasio con filtros por grupo muscular, búsqueda y rutinas guardadas en el navegador.</p>
@@ -589,7 +590,7 @@
           <a class="project-link" href="https://github.com/Agoitz00/Gym-app" target="_blank" rel="noopener"><span data-i18n="proj.viewCode">Ver código</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
         </div>
       </div>
-      <div class="project-card" data-tags="">
+      <div class="project-card" data-tags="springboot,angular,postgresql,jwt,docker">
         <span class="badge" data-i18n="proj.badge6">Proyecto personal</span>
         <h3 data-i18n="proj.title6">ParkFlow — Gestión de aparcamiento</h3>
         <p data-i18n="proj.desc6">Sistema de gestión de parking con panel en tiempo real, entradas y salidas con matrícula, tarifas configurables y cálculo automático del importe.</p>
@@ -599,7 +600,7 @@
           <a class="project-link" href="https://github.com/Agoitz00/Parking_Manager" target="_blank" rel="noopener"><span data-i18n="proj.viewCode">Ver código</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
         </div>
       </div>
-      <div class="project-card" data-tags="">
+      <div class="project-card" data-tags="react,nodejs,postgresql,jwt">
         <span class="badge" data-i18n="proj.badge7">Proyecto personal</span>
         <h3 data-i18n="proj.title7">IT Helpdesk — Panel de gestión IT</h3>
         <p data-i18n="proj.desc7">Panel IT que fusiona ASIR y DAW: inventario de equipos, tickets con SLA por prioridad, tres roles de usuario y notificaciones por email.</p>
@@ -609,14 +610,14 @@
           <a class="project-link" href="https://github.com/Agoitz00/Helpdesk" target="_blank" rel="noopener"><span data-i18n="proj.viewCode">Ver código</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
         </div>
       </div>
-      <div class="project-card" data-tags="">
+      <div class="project-card" data-tags="php,mysql">
         <span class="badge" data-i18n="proj.badge1">Proyecto académico</span>
         <h3 data-i18n="proj.title1">Gestión de registros — PHP + MySQL</h3>
         <p data-i18n="proj.desc1">Aplicación con backend en PHP y base de datos MySQL: alta, edición, borrado y listado de registros, con control de errores.</p>
         <ul class="tag-list"><li class="tag">PHP</li><li class="tag">MySQL</li><li class="tag" data-i18n="skills.oop">POO</li></ul>
         <a class="project-link" href="https://github.com/Agoitz00/exam" target="_blank" rel="noopener"><span data-i18n="proj.viewCode">Ver código</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
       </div>
-      <div class="project-card" data-tags="">
+      <div class="project-card" data-tags="python,excel">
         <span class="badge" data-i18n="proj.badge2">Automatización</span>
         <h3 data-i18n="proj.title2">Buscar_Labs — Búsqueda de laboratorios</h3>
         <p data-i18n="proj.desc2">Script en Python que localiza el laboratorio de cada producto de un listado en Excel, consultando la web de la Diputación Foral de Gipuzkoa (DFG).</p>
@@ -677,7 +678,8 @@
         <div><div class="lab" data-i18n="contact.linkedin">LinkedIn</div><div class="val">Agoitz Ezkerra</div></div>
       </a>
 
-  <form class="contact-form" action="https://formspree.io/f/xnjeeqda" method="POST" id="contactForm" novalidate>
+  </div>
+  <div class="form-center-wrap"><form class="contact-form" action="https://formspree.io/f/xnjeeqda" method="POST" id="contactForm" novalidate>
     <div class="cf-row">
       <div class="cf-group">
         <label for="cf-name" data-i18n="contact.form.name">Nombre</label>
@@ -701,8 +703,7 @@
       </button>
       <span class="cf-status" id="cfStatus" role="status"></span>
     </div>
-  </form>
-    </div>
+  </form></div>
   </section>
 </main>
 
