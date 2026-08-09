@@ -248,6 +248,9 @@
   .nav-links a.nav-active{color:var(--accent);position:relative;}
   .nav-links a.nav-active::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:2px;background:var(--accent);border-radius:1px;}
 
+  /* ── Hero visual (terminal + CTAs a la derecha) ──────── */
+  .hero-visual{display:flex;flex-direction:column;gap:1.3rem;}
+
   /* ── Typewriter ───────────────────────────────────────── */
   .hero-role-wrap{min-height:1.8em;display:flex;align-items:center;gap:2px;margin-bottom:.75rem;}
   .hero-role-label{font-size:clamp(1rem,2.2vw,1.3rem);font-weight:600;color:var(--accent);letter-spacing:.04em;}
@@ -385,22 +388,17 @@
 
 <main id="main">
   <section id="inicio" class="hero container">
-    <div class="terminal">
-      <div class="terminal-bar"><span class="dot"></span> agoitz@portfolio — zsh</div>
-      <div class="terminal-body">
-        <div class="ln"><span class="prompt">agoitz@portfolio:~$</span> <span id="cmd1">whoami</span></div>
-        <div class="ln out" id="out1">Agoitz Ezkerra Berasategi</div>
-        <div class="ln"><span class="prompt">agoitz@portfolio:~$</span> <span id="cmd2">systemctl status desarrollo.service</span></div>
-        <div class="ln out" id="out2" data-i18n-html="hero.out2">● <span class="ok">active (running)</span> — Full-Stack · Sistemas — desde 2018</div>
-        <div class="ln" id="caretLine"><span class="prompt">agoitz@portfolio:~$</span> <span class="caret"></span></div>
+    <div class="hero-visual">
+      <div class="terminal">
+        <div class="terminal-bar"><span class="dot"></span> agoitz@portfolio — zsh</div>
+        <div class="terminal-body">
+          <div class="ln"><span class="prompt">agoitz@portfolio:~$</span> <span id="cmd1">whoami</span></div>
+          <div class="ln out" id="out1">Agoitz Ezkerra Berasategi</div>
+          <div class="ln"><span class="prompt">agoitz@portfolio:~$</span> <span id="cmd2">systemctl status desarrollo.service</span></div>
+          <div class="ln out" id="out2" data-i18n-html="hero.out2">● <span class="ok">active (running)</span> — Full-Stack · Sistemas — desde 2018</div>
+          <div class="ln" id="caretLine"><span class="prompt">agoitz@portfolio:~$</span> <span class="caret"></span></div>
+        </div>
       </div>
-    </div>
-    <div class="hero-copy">
-      <div class="hero-role-wrap" aria-live="polite"><span class="hero-role-label" id="typeRole"></span><span class="hero-cursor">|</span></div>
-      <p class="eyebrow" data-i18n="hero.eyebrow">~/inicio</p>
-      <h1>Agoitz Ezkerra Berasategi</h1>
-      <p class="tagline" data-i18n="hero.tagline">Desarrollador Full-Stack con base en Administración de Sistemas</p>
-      <p class="pitch" data-i18n="hero.pitch">Construyo aplicaciones completas — del servidor a la interfaz — y entiendo la infraestructura que las mantiene en pie. Formación en Desarrollo Web y en Administración de Sistemas Informáticos en Red.</p>
       <div class="hero-ctas">
         <a href="#proyectos" class="btn btn-primary" data-i18n="hero.ctaProjects">Ver proyectos</a>
         <a href="#contacto" class="btn" data-i18n="hero.ctaContact">Contactar</a>
@@ -410,6 +408,13 @@
         <span class="stat-chip" data-i18n="hero.stat2">Doble especialización: Sistemas + Desarrollo</span>
         <span class="stat-chip" data-i18n="hero.stat3">Euskera · Español · Inglés</span>
       </div>
+    </div>
+    <div class="hero-copy">
+      <div class="hero-role-wrap" aria-live="polite"><span class="hero-role-label" id="typeRole"></span><span class="hero-cursor">|</span></div>
+      <p class="eyebrow" data-i18n="hero.eyebrow">~/inicio</p>
+      <h1>Agoitz Ezkerra Berasategi</h1>
+      <p class="tagline" data-i18n="hero.tagline">Desarrollador Full-Stack con base en Administración de Sistemas</p>
+      <p class="pitch" data-i18n="hero.pitch">Construyo aplicaciones completas — del servidor a la interfaz — y entiendo la infraestructura que las mantiene en pie. Formación en Desarrollo Web y en Administración de Sistemas Informáticos en Red.</p>
     </div>
   </section>
 
